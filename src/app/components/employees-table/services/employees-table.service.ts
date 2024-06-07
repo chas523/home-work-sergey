@@ -7,8 +7,6 @@ import { MockApiService } from '../../../common/services/mock-api.service';
   providedIn: 'root',
 })
 export class EmployeesTableService {
-  private apiUrl = 'api'; // Empty base URL
-
   constructor(private mockApi: MockApiService) {}
 
   getAllEmployees(): Observable<Employees[]> {

@@ -1,4 +1,4 @@
-import { Component, inject, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Inject } from '@angular/core';
 import {
   MAT_DIALOG_DATA,
   MatDialogActions,
@@ -39,6 +39,7 @@ import { EmployeesStore } from '../employees-table/store/employees-table.store';
   ],
   templateUrl: './employees-dialog.component.html',
   styleUrl: './employees-dialog.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeesDialogComponent {
   employeeForm: FormGroup;

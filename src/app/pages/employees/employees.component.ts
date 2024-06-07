@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { EmployeesTableComponent } from '../../components/employees-table/employees-table.component';
 
 @Component({
@@ -7,5 +7,6 @@ import { EmployeesTableComponent } from '../../components/employees-table/employ
   imports: [EmployeesTableComponent],
   templateUrl: './employees.component.html',
   styleUrl: './employees.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeesComponent {}

@@ -1,4 +1,4 @@
-import { Component, effect, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, OnInit } from '@angular/core';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import {
   MatCell,
@@ -50,6 +50,7 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
   ],
   templateUrl: './employees-table.component.html',
   styleUrl: './employees-table.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeesTableComponent implements OnInit {
   readonly employeesStore = inject(EmployeesStore);
@@ -79,18 +80,12 @@ export class EmployeesTableComponent implements OnInit {
     this.employeesStore.removeEmployee(id);
   }
 
+
   openDialog(employee?: Employees): void {
     // Make employee optional
     const dialogRef = this.dialog.open(EmployeesDialogComponent, {
       width: '400px', // Set a reasonable width for the dialog
       data: employee, // Pass employee data if editing, otherwise null for adding
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        // Handle the result from the dialog (updated or new employee data)
-        // Update your dataSource here if needed
-      }
     });
   }
 }
