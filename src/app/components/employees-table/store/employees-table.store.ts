@@ -36,7 +36,12 @@ export const EmployeesStore = signalStore(
         )
         .subscribe();
     },
-
+    
+    /**
+     * Adds a new employee.
+     * @param {Employees} employee - The employee to add.
+     * @param {any} [dialog] - Optional dialog reference to close after adding the employee.
+     */
     addEmployee: (employee: Employees, dialog?: any) => {
       patchState(store, { isLoading: true, error: null });
       employeesService
@@ -58,6 +63,11 @@ export const EmployeesStore = signalStore(
         .subscribe();
     },
 
+    /**
+     * Updates an existing employee.
+     * @param {Employees} employee - The employee to update.
+     * @param {any} [dialog] - Optional dialog reference to close after updating the employee.
+     */    
     updateEmployee: (employee: Employees, dialog?: any) => {
       patchState(store, { isLoading: true, error: null });
       employeesService
@@ -78,6 +88,10 @@ export const EmployeesStore = signalStore(
         .subscribe();
     },
 
+    /**
+     * Removes an employee by their ID.
+     * @param {string} employeeId - The ID of the employee to remove.
+     */
     removeEmployee: (employeeId: string) => {
       patchState(store, { isLoading: true, error: null });
       employeesService
